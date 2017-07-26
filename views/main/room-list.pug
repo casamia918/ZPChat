@@ -1,0 +1,17 @@
+mixin createRoomRow(room)
+  - var isPrivate = room.isPrivate()
+  tr.room-row(data-href=`/room/${room.number}` is-private=isPrivate)
+    td.col-md-1.col-sm-1.col-xs-1.text-center= room.number
+    td.col-md-7.col-sm-7.col-xs-7= room.name
+    td.col-md-2.col-sm-2.col-xs-2.text-center= room.participants.length
+    td.col-md-2.col-sm-2.col-xs-2.text-center
+      - if(isPrivate) {
+        span &#10003
+      - }
+
+mixin create-room-list(rooms)
+  - rooms.forEach(room => {
+    +createRoomRow(room)
+  - })
+
++create-room-list(rooms)

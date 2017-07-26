@@ -1,0 +1,24 @@
+extends ../layout
+
+block moduleScript
+  script(src='/javascripts/main.js')
+
+block moduleStyle
+  link(rel='stylesheet', href='/stylesheets/main.css')
+
+block content
+  - const navStyle = 'main'
+  include ../navigation.pug
+  .panel.panel-default
+    table.table.table-fixed.table-hover
+      thead
+        tr
+          th.col-md-1.col-sm-1.col-xs-1.text-center #
+          th.col-md-7.col-sm-7.col-xs-7.text-center 이름
+          th.col-md-2.col-sm-2.col-xs-2.text-center 인원
+          th.col-md-2.col-sm-2.col-xs-2.text-center 비밀방
+      tbody#room-list-body
+        include ./room-list.pug 
+  include ./create-room-modal.html
+
+

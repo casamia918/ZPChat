@@ -1,0 +1,47 @@
+{
+  "name": "zpchat",
+  "version": "1.0.0",
+  "description": "Simple real-time group chat app with super simple drawing canvas",
+  "keywords": [
+    "chat", "canvas", "html5"
+  ],
+  "homepage": "http://zpchat.kr",
+  "license": "MIT",
+  "author": {
+    "name": "casamia",
+    "url": "https://github.com/casamia918"
+  },
+  "private": true,
+  "main": "./cluster.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/casamia918/ZPChat"
+  },
+  "scripts": {},
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "~1.17.1",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.3.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "dotenv": "^4.0.0",
+    "express": "~4.15.2",
+    "express-session": "^1.15.3",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.3",
+    "mongoose-auto-increment": "^5.0.1",
+    "morgan": "~1.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "password-validator": "^4.0.0",
+    "pug": "~2.0.0-beta11",
+    "redis": "^2.7.1",
+    "request": "^2.81.0",
+    "serve-favicon": "~2.4.2",
+    "socket.io": "^2.0.3",
+    "socket.io-redis": "^5.1.0",
+    "sticky-session": "^1.1.2",
+    "util.promisify": "^1.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+.table-fixed thead {
+  border-bottom: 1px solid #ddd;
+  width: 97%;
+}
+
+.panel {
+  width: 500px;
+  margin: auto;
+}
+
+.table-fixed tr:first-child td{
+  border-top: 0px;
+}
+
+.table-fixed tbody {
+  height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  display: inline-block;
+  border-bottom-width: 0;
+}
