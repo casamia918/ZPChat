@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name        : "gp",
+    name        : "zp",
     script      : "./cluster.js",
     watch       : true,
     env: {

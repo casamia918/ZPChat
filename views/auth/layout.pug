@@ -19,8 +19,8 @@ block content
     h2.form-heading.text-center ZPChat
     h5.form-heading.text-center Simple real-time group chat app<br>with super simple drawing canvas
     form.form-signin(action=actionPath method='post' )
-      input.form-control(type="text" name="username" placeholder="Username" )
-      input.form-control(type="password" name="password" placeholder="Password")
+      input.form-control(type="text" name="username" placeholder="Username (2~20)" )
+      input.form-control(type="password" name="password" placeholder="Password (8~20, with symbols)")
       - if(type === 'register') {
         <div class="g-recaptcha" data-sitekey="6LcElyoUAAAAAKa2lJJWdrFD1rYJgcsR2DQX3-0_"></div>
       - }

@@ -1,6 +1,5 @@
 var app = require('./app');
 var debug = require('debug')('app:server');
-const config = require('./config/main');
 var http = require('http');
 
 /**
@@ -66,7 +65,7 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  console.log('Listening on ' + bind);
+  console.log('Listening on ' + bind, 'NODE_ENV=', process.env.NODE_ENV);
 }
 
 module.exports = server;

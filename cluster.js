@@ -2,10 +2,11 @@ require('dotenv').config()
 const cluster = require('cluster');
 const os = require('os');
 const net = require('net');
+const config = require('./config/main');
 
 if(cluster.isMaster) {
   const numProcesses = os.cpus().length;
-  const port = 3000;
+  const port = config.port;
   const workers = [];
   
   var spawn = function(i) {

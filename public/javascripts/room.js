@@ -14,26 +14,35 @@
     }
     $('#line-width-picker').val(App.setting.lineWidth);
     $('#color-picker').val(App.setting.strokeStyle);
+    App.lastPoints = {};
 
     App.chatScrollToBottom();
     App.startSocket();
   };
 
-  App.draw = function(x,y,strokeStyle, lineWidth, type) {
+  App.draw = function(x, y, strokeStyle, lineWidth, type, username) {
     const ctx = this.ctx;
     switch(type) {
       case "dragstart":
+        var lastPoint = App.lastPoints[username] = {};
         ctx.beginPath();
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
-        ctx.moveTo(x,y);
+        lastPoint.x = x;
+        lastPoint.y = y;
         break;
       case "drag":
+        var lastPoint = App.lastPoints[username];
+        ctx.strokeStyle = strokeStyle;
+        ctx.lineWidth = lineWidth;
+        ctx.moveTo(lastPoint.x, lastPoint.y);
         ctx.lineTo(x,y);
+        lastPoint.x = x;
+        lastPoint.y = y;
         ctx.stroke();
         break;
       default:
-        ctx.closePath();
+        App.lastPoints[username] = {};
     }
   }
 
@@ -52,7 +61,7 @@
       return paths[roomIndex+1];
     }
 
-    App.socket = io.connect('http://localhost:3000?room='+roomNumber, {
+    App.socket = io.connect(window.location.host+'?room='+roomNumber, {
       path: '/socket'
     });
 
@@ -170,9 +179,9 @@
     offset = $(this).offset();
     x = e.pageX - offset.left;
     y = e.pageY - offset.top;
-    App.draw(x, y, App.setting.strokeStyle, App.setting.lineWidth, type);
+    App.draw(x, y, App.setting.strokeStyle, App.setting.lineWidth, type, App.username);
     App.socket.emit('draw', {
-      args: [ x, y, App.setting.strokeStyle, App.setting.lineWidth, type ]
+      args: [ x, y, App.setting.strokeStyle, App.setting.lineWidth, type, App.username ]
     })
   });
 

@@ -3,10 +3,17 @@ const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 
+const maxUsernameLength = 20;
+const minUsernameLength = 2;
+
 const UserSchema = new Schema({
   username: {
     type: String,
     unique: true,
+    validate: [
+      {validator: makeLengthValidator('max', maxUsernameLength), msg: `Maximum username length is ${maxUsernameLength}`},
+      {validator: makeLengthValidator('min', minUsernameLength), msg: `Minimum username length is ${minUsernameLength}`},
+    ],
     required: true
   },
   password: {
@@ -14,6 +21,21 @@ const UserSchema = new Schema({
     required: true
   }
 });
+
+
+function makeLengthValidator(type, length) {
+  if(type === 'max') {
+    return function(val) {
+      return val.length <= length
+    }
+  } else if (type === 'min') {
+    return function(val) {
+      return val.length >= length
+    }
+  } else {
+    throw new Error('Invalid validator type')
+  }
+}
 
 UserSchema.pre('save', function (next) {
   const user = this;
