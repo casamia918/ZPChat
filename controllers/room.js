@@ -2,7 +2,6 @@ const _ = require('lodash');
 const promisify = require('util.promisify');
 const User = require('../models/user');
 const Room = require('../models/room');
-const helpers = require('../helpers');
 const config = require('../config/main');
 const {maxRoomParticipants} = require('../config/constants.js');
 

@@ -5,8 +5,6 @@ require('./services/passport.js');
 const AuthenticationController = require('./controllers/authentication.js');
 const MainController = require('./controllers/main.js');
 const RoomController = require('./controllers/room.js');
-const ChatController = require('./controllers/chat.js');
-const UserController = require('./controllers/user.js');
 
 const loginAuthenticator = passport.authenticate('local', { failureRedirect: '/', failureFlash: true});
 

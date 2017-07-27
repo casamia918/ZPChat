@@ -1,7 +1,6 @@
 const config = require('../config/main');
 const User = require('../models/user');
 const LocalStrategy = require('passport-local');
-const helpers = require('../helpers.js');
 const promisify = require('util.promisify');
 const passport = require('passport');
 

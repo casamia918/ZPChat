@@ -1,7 +1,6 @@
 const _ = require('lodash');
 const promisify = require('util.promisify');
 const User = require('../models/user');
-const helpers = require('../helpers');
 const config = require('../config/main');
 const passport = require('passport');
 const request = require('request');
