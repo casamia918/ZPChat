@@ -192,6 +192,14 @@
   $('canvas').click(function() {
     $('#message-input').blur();
   });
+  
+  $('canvas').on('touchstart', function(e) {
+    e.preventDefault();
+  });
+
+  $('canvas').on('touchend', function(e) {
+    e.preventDefault()
+  });
 
   $(document).keyup(function(e) {
     if(e.target.id !== 'message-input') {
