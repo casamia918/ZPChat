@@ -124,6 +124,10 @@
 
     this.chatList.append(messageElement);
     App.chatScrollToBottom();
+    const messageNumber = $('li.message', App.chatList).length;
+    if(messageNumber >= 200) {
+      $('li.message:nth-child(1)', App.chatList).remove();
+    }
   }
 
   App.chatScrollToBottom = function() {

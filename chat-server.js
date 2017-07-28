@@ -182,6 +182,15 @@ exports.init = function(httpServer) {
           throw new Error('Can not find room');
         }
       })
+      .then( room => {
+        if(room) {
+          socket.broadcast.to(roomNumber).emit('chat', {
+            args: ['알림', `${socket.username} 님이 나가셨습니다. `, false]
+          })
+        } else {
+          return;
+        }
+      })
       .catch(e => {
         console.error(e);
       });

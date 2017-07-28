@@ -8,6 +8,10 @@
   font-size: 1.2em;
 }
 
+.my-message {
+  font-weight: bold;
+}
+
 .row {
   height: 502px;
   width: 100%;
